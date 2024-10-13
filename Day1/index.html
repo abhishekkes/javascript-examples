@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JSON Example</title>
+</head>
+
+<body>
+    <h1>Users List</h1>
+    <ul id="usersList"></ul>
+
+    <script>
+        // Fetch the JSON file
+        fetch('data.json')
+            .then(response => {
+                // Ensure the response is OK (status code 200)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();  // Parse the JSON
+            })
+            .then(data => {
+                // Handle the JSON data
+                const usersList = document.getElementById('usersList');
+                data.users.forEach(user => {
+                    // Create a list item for each user
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `ID: ${user.id} | Name: ${user.name} | Email: ${user.email}`;
+                    usersList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    </script>
+</body>
+
+</html>

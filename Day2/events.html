@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="script.js"></script>
+  <style>
+    #rectdiv {
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      background-color: blueviolet;
+    }
+
+    button {
+      width: 100px;
+      height: 50px;
+      border-radius: 12px;
+
+    }
+
+    button:hover {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="rectdiv"></div>
+  <button onclick="alert('welocme')">Click</button>
+  <button id="btn">Button 1</button>
+  <button id="btn1">Button 2</button>
+  <button id="btn3">Button 3</button>
+
+  <script>
+    document.getElementById('btn').onclick = () => {
+      alert('Welocme to JS');
+    };
+
+    document.getElementById('btn').onmouseover = () => {
+      alert('Welocme to JS');
+    };
+
+    let btn1 = document.getElementById('btn1');
+    btn1.addEventListener('click', () => {
+      alert('Welcome to JS with functions');
+    })
+    const handleclick = () => {
+      let rectdiv = document.getElementById('rectdiv');
+      rectdiv.style.translate = '30rem 0';
+      alert("hello");
+    }
+
+    let btn3 = document.getElementById('btn3');
+    btn3.addEventListener('click', handleclick);
+  </script>
+</body>
+
+</html>
